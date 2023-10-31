@@ -31,6 +31,7 @@ app.get('/user/:id', async(req, res) => {
             id: id
         }
     })
+
     return res.status(200).json(user)
 
 })
@@ -42,7 +43,8 @@ app.post('/createUser', async (req, res) => {
     const user = await prisma.Cliente.create({
         data: {
             nome: req.body.nome,
-            CPF: req.body.CPF
+            CPF: req.body.CPF,
+            rendimento: req.body.rendimento
         }
     })
 
@@ -62,7 +64,8 @@ app.put('/putUser/:id', async (req, res) => {
         },
         data: {
             nome: req.body.nome,
-            CPF: req.body.CPF
+            CPF: req.body.CPF,
+            rendimento: req.body.rendimento
         }
     })
 
