@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
+    <title>Inserir Usuário</title>
+</head>
+<body>
+    <h2>Inserir Usuário</h2><br>
+    <form >
+        <input type="text" name="nome" id="nome" placeholder="Nome" required /><br><br>
+        <input type="text" name="CPF" id="CPF" placeholder="CPF" required /><br><br>
+        <input type="number" name="rendimento" id="rendimento" placeholder="Rendimento Anual" required /><br><br>
+        <input type="submit" value="Inserir Usuário" style="background-color:#cbb5f7c9; color:#0e081c; font-weight: bolder; cursor: pointer;" />
+    </form><br>
+    <a href="index.html">Voltar para a página inicial</a>
+
+    <script>
+
+        const form = window.document.querySelector('form').addEventListener('submit', handleForm)
+
+        async function handleForm(event) {
+
+            event.preventDefault();
+
+            const inputName = document.querySelector('#nome').value
+            const inputCPF = document.querySelector('#CPF').value
+            const inputRendimento = document.querySelector('#rendimento').value
+
+            fetch('http://localhost:3000/createUser', { method: "POST" , body:{
+                nome: inputName,
+                CPF: inputCPF,
+                rendimento: inputRendimento
+            }})
+            .then(response => response.json())
+            .then(data => console.log(data))
+
+        }
+
+    </script>
+</body>
+
+
+</html>
