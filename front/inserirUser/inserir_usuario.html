@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="../css/style.css" media="screen">
+    <title>Inserir Usuário</title>
+</head>
+<body>
+    <h2>Inserir Usuário</h2><br>
+    <form method="post" onsubmit='createUser()'>
+        <input type="text" name='nome' id="nome" placeholder="Nome" required><br><br>
+        <input type="text" name="CPF" id="CPF" placeholder="CPF" required ><br><br>
+        <input type="number" name="rendimento" id="rendimento" placeholder="Rendimento Anual" required ><br><br>
+        <input type="submit" value="Inserir Usuário" style="background-color:#cbb5f7c9; color:#0e081c; font-weight: bolder; cursor: pointer;" />
+    </form><br>
+
+    <a href="../index.html">Voltar para a página inicial</a>
+
+    <script src="createUser.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  
+</body>
+
+
+</html>

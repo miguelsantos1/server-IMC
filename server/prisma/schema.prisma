@@ -10,7 +10,7 @@ datasource db {
 
 model Cliente {
   id           String @id @default(uuid())
-  nome        String
-  CPF         String @unique
-  rendimento  Int 
+  nome         String
+  CPF          String @unique
+  rendimento   Int 
 }

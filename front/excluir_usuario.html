@@ -8,10 +8,32 @@
 </head>
 <body>
     <h2>Excluir Usuário</h2><br>
-    <input type="text" name="nome" placeholder="Insira o ID do usuário" required style="width:30%;"><br><br>
+    <input type="text" id="id" placeholder="Insira o ID do usuário" required style="width:30%;"><br><br>
     <p>Você tem certeza de que deseja excluir este usuário?</p><br>
-    <a href="excluir_confirmado.php?id=">Sim</a>
+    <a onclick="deleteUser()">Sim</a> 
     <a href="index.html">Não, voltar para o início</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        function deleteUser() {
+            
+            try {
+            const id = document.querySelector('#id').value
+            axios.delete(`http://localhost:3000/deleteUser/${id}`)
+            console.log('deletou')
+            }
+                 
+        catch (error) {
+            console(error)
+        }
+    }
+
+        
+
+
+
+    </script>
 </body>
 </html>
 ''

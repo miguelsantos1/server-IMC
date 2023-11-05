@@ -7,9 +7,54 @@
     <link rel="stylesheet" type="text/css" href="css/style.css" media="screen">
     <title>Lista de Usuários</title>
 </head>
-<body>
+<body onload="getAPI()">
     <h2>Lista de Usuários</h2>
     <br>
+
+    <div id="users">
+
+
+    </div>
+
     <a href="index.html">Voltar para a página inicial</a>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+
+        function getAPI() {
+
+            const listUsers = document.querySelector('#users')
+
+            fetch(`http://localhost:3000/user`)
+            .then(response => response.json())
+            .then(data => {
+
+
+             data.forEach(user => {
+                const userElement = document.createElement('div')
+                userElement.className = 'user'
+                listUsers.appendChild(userElement)
+
+                userElement.innerHTML = 
+                `
+                
+                <div>
+                    <p> ${user.nome} </p>
+                    <p> ${user.CPF} </p>
+                    <p> R$ ${user.rendimento},00 </p>
+                </div>
+                <div>
+                    <p class="userID"> ${user.id} </p>
+                </div>
+
+                `
+             })
+
+                
+            })
+        }
+
+    </script>
 </body>
 </html>
